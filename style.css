@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Input and Add button positioned to the top-left */
+.add-participant {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+}
+
+.add-participant input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-participant button {
+  padding: 10px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Random button positioned to the top-right */
+.select-random {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Styling for the spinning wheel */
+.wheel {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.slice {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 100% 100%;
+  clip-path: polygon(100% 100%, 0 0, 100% 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+/* Styling for the text to align radially */
+.slice span {
+  transform: rotate(-45deg); /* Rotate text to fit the slice */
+  writing-mode: vertical-rl; /* Make text flow from border to center */
+  font-size: 12px;
+}
+
+/* Spinning animation */
+.spin {
+  animation: spin 3s ease-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+
+/* Styling for the selected participant */
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  /* color: white; */
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #c2c1a6;
+}
+
+.highlight {
+  animation: pulse 1s infinite;
+  background-color: #ff9800;
+  padding: 20px;
+  border-radius: 50%;
+  color: #fff;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
